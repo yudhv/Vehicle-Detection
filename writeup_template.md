@@ -12,7 +12,8 @@ The steps followed to identify cars on the road were as follows:
 
 [//]: # (Image References)
 [image1]: ./examples/car_not_car.png
-[image2]: ./examples/hog.jpg
+[image2]: ./examples/car_hog.jpg
+[image8]: ./examples/noncar_hog.jpg
 [image3]: ./examples/aggr_win1.jpg
 [image4]: ./examples/aggr_win2.jpg
 [image5]: ./examples/heat.jpg
@@ -34,7 +35,7 @@ Once extracted, the images are passed to an `extract_features()` function that c
 
 Here is an example of the car and non-car images - 
 
-![alt text][image]
+![alt text][image1]
 
 ###Histogram of Oriented Gradients (HOG)
 
@@ -52,7 +53,11 @@ I tried various combinations of parameters and found the following values to per
 
 Here is the resultant HOG image -
 
-![alt text][image]
+![alt text][image2]
+
+For a non_car image - 
+
+![alt text][image8]
 
 ###Spatial and Color Histograms
 
@@ -86,16 +91,14 @@ Here is an output for the aggregated windows -
 
 ![alt text][image3]
 
-####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
-
-Ultimately I searched on the Cr color space of the YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
+Another example - 
 
 ![alt text][image4]
 ---
 
 ### Video Pipeline
 
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./project_video_done.mp4)
 
 The pipeline code can be found in the 14th cell of the notebook, under the `pipeline()` function. The function takes as input an image from the test video, and outputs the same image with bounding boxes drawn over identified objects. 
 
@@ -106,18 +109,14 @@ A few additional steps were taken to get elegant, stable and continuous bounding
 
 The code for building heatmaps, thresholding, and drawing final bounding boxes can be found in cells 9, 10, and 11 respectively.
 
-The final output looks like this -
-
-![alt text][image4]
-
-### Here are six frames and their corresponding heatmaps:
+Here are five frames and their corresponding heatmaps:
 
 ![alt text][image5]
 
-### Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from all six frames:
+Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from all six frames:
 ![alt text][image6]
 
-### Here the resulting bounding boxes are drawn onto the last frame in the series:
+The final output looks like this -
 ![alt text][image7]
 
 ---
