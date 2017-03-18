@@ -1,4 +1,4 @@
-##Vehicle Detection Project
+## Vehicle Detection Project
 
 The steps followed to identify cars on the road were as follows:
 
@@ -21,11 +21,8 @@ The steps followed to identify cars on the road were as follows:
 [image7]: ./examples/final.jpg
 [video1]: ./project_video.mp4
 
-## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/513/view) individually and describe how I addressed each point in my implementation.  
-
 --- 
-###Training Data
+### Training Data
 
 The code for this step can be found in the 13th code cell of the IPython notebook "main.ipynb" which will be referenced as simply the notebook from now on.
 
@@ -37,7 +34,7 @@ Here is an example of the car and non-car images -
 
 ![alt text][image1]
 
-###Histogram of Oriented Gradients (HOG)
+### Histogram of Oriented Gradients (HOG)
 
 The code for this step is contained in the third code cell as the function `get_hog_feature()` and the function `extract_features()` in the 7th code cell of the notebook. 
 
@@ -59,7 +56,7 @@ For a non_car image -
 
 ![alt text][image8]
 
-###Spatial and Color Histograms
+### Spatial and Color Histograms
 
 The code for this step is contained in the 5th and 6th code cell as the functions `bin_spatial()` and `color_hist()` respectively.
 
@@ -71,7 +68,7 @@ The `color_hist()` function computes a histogram of the three layers of an image
 
 Finally, these three feature vectors (HOG, Spatial, and Histogram) are stacked together horizontally and fed to the Support Vector Classifier for training/predicting.
 
-###Support Vector Classifier (SVC)
+### Support Vector Classifier (SVC)
 
 The code for this step can be found in the 13th code cell of the notebook.
 
@@ -79,7 +76,7 @@ Here, I use a Linear Support Vector Machine Classifier (SVC in short) to learn t
 
 Initially, the coombined feature vectors obtained using HOG, Spatial, and Histogram features are normalized using the `StandardScaler()` function from sklearn, so as to disallow the dominance of any one feature set over the other. Next, the car and non-car images are randomly split into a training and testing data set for the SVC to train and validate on. 
 
-###Sliding Window Search
+### Sliding Window Search
 
 The code for this step can be found in the 12th cell of the notebook under the `find_cars()` function.
 
@@ -121,9 +118,7 @@ The final output looks like this -
 
 ---
 
-###Discussion
-
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further. 
+### Conclusion
 
 I believe a much more robust model can be created by using a better trained classifier, a progressively increasing windows size that corresponds with the nature of a car appearing bigger as we approach it, and finally, by using a multi-layer classifier that can distinguish between cars, bikes, pedestrains, traffic signs etc. 
 
